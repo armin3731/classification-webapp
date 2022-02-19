@@ -67,31 +67,39 @@ There is `Iris_flowers.csv` inside `Example Dataset` that you can use as an exam
 #### Step1: Upload Database
 If you run the application for the first time, you can see there is an empty table that should store your training history.
 In order to upload a new database hit the `Upload Dataset` button.
+
 ![PIC1](static/images/PIC1.png)
 
 
 It will lead you to another page where you can choose your desired data base. After choosing your data base, hit `Submit` button to start uploading process.
+
 ![PIC2](static/images/PIC2.png)
 
 #### Step2: Train Database
 When uploading is done, you will return to Dashboard but a new row is added to the table. Important information such as File_ID, Upload Date,	Trained Model and	Status can be seen.
 In order to train a database hit `Train it!` button.
+
 ![PIC3](static/images/PIC3.png)
 
 On Train Dataset page, there is 3 classifier that can be chosen for your data. Select one and set parameters as you wish then hit `Train it!` button.
+
 ![PIC4](static/images/PIC4.png)
 
 Training process happens on Celery therefore, the app leads you to Dashboard immediately. You will see gray badge in front of your File_ID saying `Training...` which means training hasn't finished yet.
+
 ![PIC5](static/images/PIC5.png)
 ![PIC6](static/images/PIC6.png)
 
 #### Step3: Predict
 If you refresh your Dashboard after some seconds, a `Predict` button will appear (`Retrain` button let you train a different classifier with new settings on your database).
 Using Predict button, Predict webpage appears.
+
 ![PIC7](static/images/PIC7.png)
 
 Based on your database and number of its attributes, you have to enter an input value and hit `Submit` button.
+
 ![PIC8](static/images/PIC8.png)
 
 Your prediction will be shown next:
+
 ![PIC9](static/images/PIC9.png)
