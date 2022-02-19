@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1> Predict </h1>
+<h3>Dataset ID: <code>{{file_id}}</code></h3>
+<h3>Model Name: <code>{{model_name}}</code></h3>
+
+{%if predict_result==''%}
+<p>Please enter the input value</p>
+<div class="col-8">
+<form action = "/predict_dataset/{{file_id}}/" method = "POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="input_value" class="form-label">Input Value:</label>
+    <input type="text" class="form-control" name="input_value" placeholder="5.5, 2.6, 4.4, 1.2">
+    <div id="inputHelp" class="form-text">Based on your dataset and how many attributes your data have,
+       you should enter input data and seperate each attribute. As an example "Iris_flowers" dataset has 4 attributes and
+      input data is like "5.5, 2.6, 4.4, 1.2"</div>
+  </div>
+   <input type = "Submit" class="btn btn-primary"/>
+      </form>
+</div>
+{%else%}
+<br>
+<br>
+<h3>Predicted Label:</h3>
+<h1><kbd>{{predict_result}}</kbd></h1>
+{% endif %}
+{% endblock %}

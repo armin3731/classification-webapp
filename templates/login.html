@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>User-based Request Prioritizing</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">
+
+  </head>
+
+  <body >
+
+    <form class="form-signin text-center" method="POST">
+      <a href="http://danaxa.com/"><img src="static/images/danaxa_logo.jpeg" width="150px" height="150px"></a>
+
+      <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
+      {% include 'includes/_messages.html' %}
+
+      <input type="text" name="username" id="inputusername" class="form-control" placeholder="Username" required autofocus value="{{request.form.username}}">
+      <input type="password" name="password" id="inputpassword" class="form-control" placeholder="Password" required>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Help Me Login!
+      </button><br><br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">by Armin Eskandarinasab for DanaXa</p>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pre-defined Users</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-start">Hi! <br> This Flask-app is the User-based Request Prioritizing (Challenge2) web-app. For less complexity while runtime, there are 3 pre-defined users with different weights.<p>
+        <p><b>User1:</b> admin       <b>Pass:</b> admin</p>
+        <p><b>User2:</b> armin       <b>Pass:</b> 12345</p>
+        <p><b>User3:</b> sina       <b>Pass:</b> abcd</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </form>
+
+
+  </body>
+</html>

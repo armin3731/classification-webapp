@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1> Upload Dataset </h1>
+<p>Please select a "CSV" dataset and hit Submit button.</p>
+<form action = "/upload_dataset" method = "POST" enctype="multipart/form-data">
+         <input type = "file" name = "file" class="btn btn-dark"/>
+         <br><br>
+         <input type = "submit" class="btn btn-primary"/>
+      </form>
+
+
+{% endblock %}

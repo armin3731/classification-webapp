@@ -1,0 +1,82 @@
+
+{% extends 'layout.html' %}
+<!--file_id,upload_date,method,parameters,pickle_address,status,details-->
+{% block body %}
+<h1> Dashboard </h1>
+
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Upload Dataset</button>-->
+<a href="/upload_dataset" class="btn btn-primary btn-sm">Upload Dataset</a>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">File ID</th>
+      <th scope="col">Upload Date</th>
+      <th scope="col">Trained Model</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for each_process_row in process_list %}
+
+  <tr>
+    <td>{{each_process_row[1]}}</td>
+    <td>{{each_process_row[2]}}</td>
+    <td>{{each_process_row[3]}}</td>
+    <td>
+      {% if each_process_row[6] == 'Upload'%}
+      <span>
+      <a href="/train_dataset/{{each_process_row[1]}}/" class="btn btn-primary btn-sm">Train it!</a>
+      </span>
+      {% elif each_process_row[6] == 'Predict'%}
+      <span>
+      <a href="/predict_dataset/{{each_process_row[1]}}/" class="btn btn-success btn-sm">Predict</a>
+      <a href="/train_dataset/{{each_process_row[1]}}/" class="btn btn-light btn-sm">Retrain</a>
+      </span>
+      {% elif each_process_row[6] == 'Training'%}
+      <span>
+      <a href="#" class="btn btn-secondary btn-sm">Training...</a>
+      </span>
+
+      {% endif %}
+
+        {% endfor %}
+
+
+
+
+
+
+
+<!-- Modal -->
+<!--
+<form method="POST" action="/submit_job">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a New Job</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"><b>User id:</b></label><br>
+                <samp>{{session.username}}</samp>
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"><b>Input X:</b></label>
+                <input type="text" class="form-control" id="input_x" name="input_x" required>
+              </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" type="submit" >Confirm</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+    -->
+{% endblock %}

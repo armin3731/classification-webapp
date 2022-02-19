@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1> Train Dataset </h1>
+
+<h2>Dataset ID: <code>{{file_id}}</code></h2>
+<p>Please select one classifier for your dataset.</p>
+
+<p class="row justify-content-md-center">
+  <div class="btn-group btn-group-lg justify-content-md-center" role="group" aria-label="Basic example">
+    <button class="col btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      1.Simple Neural Network
+    </button>
+    <button class="col btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+      2.Support Vector Machine (SVM)
+    </button>
+    <button class="col btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+      3.Lasso (Linear Model)
+    </button>
+  </div>
+</p>
+
+<!-- Simple Neural Network -->
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <h4>Simple Neural Network</h4>
+    <p>This classifier implements a multi-layer perceptron (MLP) algorithm that trains using Backpropagation.</p>
+    <div class=" row justify-content-md-center">
+
+    <form class="col-6" action = "/train_dataset/{{file_id}}/" method = "POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="model_name" class="form-label">Training Model Code:</label>
+        <input type="text" readonly class="form-control-plaintext" name="model_name" value="model1_NN">
+      </div>
+      <div class="mb-3">
+        <label for="algorithm_name" class="form-label">Algorithm:</label>
+        <select class="form-select" aria-label="Default select example" name="algorithm_name">
+          <option value="lbfgs" selected>L-BFGS</option>
+          <option value="sgd">Stochastic Gradient Descent (SGD)</option>
+          <option value="adam">Adam</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="alpha_val" class="form-label">Alpha:</label>
+        <input type="text" class="form-control" name="alpha_val" placeholder="1e-5">
+        <div id="alphaHelp" class="form-text">The parameter Alpha uses for regularization (L2 regularization) term which helps in avoiding overfitting</div>
+      </div>
+      <div class="mb-3">
+        <label for="hidden_layers" class="form-label">Hidden Layers:</label>
+        <input type="text" class="form-control" name="hidden_layers_val" placeholder="20, 30, 15, 5">
+        <div id="hiddenlayerHelp" class="form-text">You can specify number of hidden layers and their size. Size of ech layer is shown by a number and each layer seperates with "," as an example 2 hidden layers with sizes 8 and 14 can be shown as "8 , 14"</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Train it!</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SVM -->
+<div class="collapse" id="collapseExample2">
+  <div class="card card-body">
+    <h4>Support Vector Machine (SVM)</h4>
+    <p>The implementation is based on libsvm.</p>
+    <div class=" row justify-content-md-center">
+
+    <form class="col-6" action = "/train_dataset/{{file_id}}/" method = "POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="model_name" class="form-label">Training Model Code:</label>
+        <input type="text" readonly class="form-control-plaintext" name="model_name" value="model2_SVM">
+      </div>
+      <div class="mb-3">
+        <label for="c_val" class="form-label">C (Regularization Parameter):</label>
+        <input type="text" class="form-control" name="c_val" placeholder="1.0">
+        <div id="cHelp" class="form-text">The strength of the regularization is inversely proportional to C</div>
+      </div>
+      <div class="mb-3">
+        <label for="kernel_name" class="form-label">Kernel:</label>
+        <select class="form-select" aria-label="Default select example" name="kernel_name">
+          <option value="rbf" selected>RBF</option>
+          <option value="linear">Linear</option>
+          <option value="poly">Polynomial</option>
+          <option value="sigmoid">Sigmoid</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="gamma_val" class="form-label">Gamma:</label>
+        <select class="form-select" aria-label="Default select example" name="gamma_val">
+          <option value="scale" selected>Scale</option>
+          <option value="auto">Automatic</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Train it!</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Lasso -->
+<div class="collapse" id="collapseExample3">
+  <div class="card card-body">
+    <h4>Lasso (Linear Model)</h4>
+    <p>The Lasso is a linear model that estimates sparse coefficients.</p>
+    <div class=" row justify-content-md-center">
+
+    <form class="col-6" action = "/train_dataset/{{file_id}}/" method = "POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="model_name" class="form-label">Training Model Code:</label>
+        <input type="text" readonly class="form-control-plaintext" name="model_name" value="model3_LASSO">
+      </div>
+      <div class="mb-3">
+        <label for="alpha_val" class="form-label">Alpha:</label>
+        <input type="text" class="form-control" name="alpha_val" placeholder="0.1">
+        <div id="alphaHelp" class="form-text">The Alpha parameter controls the degree of sparsity of the estimated coefficients.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Train it!</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

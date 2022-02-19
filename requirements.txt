@@ -1,0 +1,8 @@
+numpy
+pandas
+uuid
+celery
+sklearn
+werkzeug
+pickle-mixin
+flask
