@@ -1,4 +1,4 @@
-# Communer Tech Assessment
+# Communere Tech Assessment
 A full-stack application to upload datasets, choose classifier and predict unforeseen results.
 
 ## How to Install
