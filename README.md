@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/github/license/armin3731/classification_webapp)]
+![License](https://img.shields.io/github/license/armin3731/classification_webapp)
 # Classification Web-app
 
 A full-stack application to upload datasets, choose classifier, train classifier and predict unforeseen results. This app uses __Celery__ to train data in background without making difficulties for main performance of the app.
