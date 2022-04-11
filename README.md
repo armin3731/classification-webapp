@@ -1,5 +1,6 @@
-# Communere Tech Assessment
-A full-stack application to upload datasets, choose classifier and predict unforeseen results.
+# Classification Web-app
+
+A full-stack application to upload datasets, choose classifier, train classifier and predict unforeseen results. This app uses __Celery__ to train data in background without making difficulties for main performance of the app.
 
 ## How to Install
 Prior to installing the application doing some steps are critical. Using Anaconda is recommended and installation process is preformed with that assumption.
